@@ -70,7 +70,15 @@ const { generateTokenAndSaveInCookies } = require("../jwt/token")
     if (!user || !(await bcrypt.compare(password, user.password))) {
       return res.status(400).json({ errors: "Invalid email or password" });
     }
+    // create token
     const token = await generateTokenAndSaveInCookies(user._id, res);
+    // send cookie
+    res.cookie("jwt", tokenm {
+      httpOnly: true,
+      secure: true,
+      sameSite: nodemon,
+      maxAge: "1d"
+    })
     res
       .status(200)
       .json({ message: "User logged in successfully", user, token });
