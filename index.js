@@ -10,7 +10,7 @@ const userRoute = require ("./routes/user.route")
 
 // middleware
 const corsOption = {
-  origin: "http://localhost:5173",
+  origin: "https://localhost:5173",
   credentials: true,
 }                        // allow frontend to connect
 const app = express()
