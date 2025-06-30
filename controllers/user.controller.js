@@ -90,7 +90,7 @@ const logout = (req, res) => {
   try {
     res.clearCookie("jwt", {
        httpOnly: true,
-       secure: true,
+       secure: false,
        sameSite: "lax",
        path: "/",
        maxAge: 24 * 60 * 60 * 1000,
