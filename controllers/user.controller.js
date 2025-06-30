@@ -73,12 +73,12 @@ const { generateTokenAndSaveInCookies } = require("../jwt/token")
     // create token
     const token = await generateTokenAndSaveInCookies(user._id, res);
     // send cookie
-    res.cookie("jwt", token, {
-      httpOnly: true,
-      secure: true, 
-      sameSite: none,
-      maxAge: 24 * 60 * 60 * 1000,
-    })
+    // res.cookie("jwt", token, {
+    //   httpOnly: true,
+    //   secure: true, 
+    //   sameSite: none,
+    //   maxAge: 24 * 60 * 60 * 1000,
+    // })
     res
       .status(200)
       .json({ message: "User logged in successfully", user, token });
