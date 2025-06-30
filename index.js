@@ -15,7 +15,7 @@ const userRoute = require ("./routes/user.route")
 // }                        // allow frontend to connect
 
 const corsOptions = {
-  origin: "http://localhost:5173",     // this allows request from any origin
+  origin: "https://frontend-tasque.vercel.app",     // this allows request from any origin
   credentials: true,                   // this allows cookies, authorization headers, TLS certi..
   optionSuccessStatus: 200,           // set status code 200 for successful request..
 }
