@@ -1,7 +1,7 @@
 const express = require("express")
 const dotenv = require("dotenv")
 const cors = require("cors")
-const serverless = require("serverless-http")
+// const serverless = require("serverless-http")
 dotenv.config()
 const { initializeDatabase } = require("./db/db.connect")
 const cookieParser = require ("cookie-parser")
@@ -32,5 +32,9 @@ app.get("/", (req, res) => {
 
 const PORT = process.env.PORT || 3000
 
+app.listen(PORT, () => {
+  console.log(`Server is running on the port ${PORT}`);
+  
+})
 
-module.exports = serverless(app);
+// module.exports = serverless(app);
