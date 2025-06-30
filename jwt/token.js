@@ -8,7 +8,7 @@ const token = jwt.sign({ userId }, process.env.JWT_SECRET_KEY, {
 console.log("token", token)
 res.cookie("jwt", token, {
   httpOnly: true,
-  secure: false,
+  secure: true,
   sameSite: "none",
   path: "/"
 })
