@@ -12,14 +12,14 @@ try {
   const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY)
   req.user = await User.findById(decoded.userId)
   console.log("user in request:", req.user);
-
+  next()
 } catch (error) {
   console.log(error);
   res.status(500).json({ message: "" + error.message})
   
 }
 
-next()
+
 }
 
 module.exports = authenticate 
