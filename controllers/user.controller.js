@@ -71,7 +71,7 @@ const { generateTokenAndSaveInCookies } = require("../jwt/token")
       return res.status(400).json({ errors: "Invalid email or password" });
     }
     // create token
-    // const token = await generateTokenAndSaveInCookies(user._id, res);
+    const token = await generateTokenAndSaveInCookies(user._id, res);
     
     res
       .status(200)
@@ -91,7 +91,7 @@ const logout = (req, res) => {
     res.clearCookie("jwt", {
        httpOnly: true,
        secure: false,
-       sameSite: "lax",
+       sameSite: "none",
        path: "/"
     })
     res.status(200).json({ message: "User logged out successfully" })
