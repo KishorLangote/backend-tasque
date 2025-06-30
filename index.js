@@ -9,15 +9,21 @@ const todoRoute = require("./routes/todo.route")
 const userRoute = require ("./routes/user.route")
 
 // middleware
-const corsOption = {
-  origin: "https://localhost:5173",
-  credentials: true,
-}                        // allow frontend to connect
+// const corsOption = {
+//   origin: "https://frontend-tasque.vercel.app/login",
+//   credentials: true,
+// }                        // allow frontend to connect
+
+const corsOptions = {
+  origin: "*",     // this allows request from any origin
+  credentials: true,                   // this allows cookies, authorization headers, TLS certi..
+  optionSuccessStatus: 200,           // set status code 200 for successful request..
+}
 const app = express()
 app.use(cookieParser())
 app.use(express.json())  // middleware who parse incoming request with JSON format like "key": "value" pair
 
-app.use(cors(corsOption))
+app.use(cors(corsOptions))
          
 initializeDatabase() // call the db
 
