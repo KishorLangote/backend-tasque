@@ -9,7 +9,7 @@ console.log("token", token)
 res.cookie("jwt", token, {
   httpOnly: true,
   secure: true,
-  sameSite: "lax",
+  sameSite: "none",
   path: "/"
 })
 
