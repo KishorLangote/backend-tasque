@@ -73,7 +73,7 @@ const { generateTokenAndSaveInCookies } = require("../jwt/token")
     // create token
     const token = await generateTokenAndSaveInCookies(user._id, res);
     // send cookie
-    res.cookie("jwt", tokenm {
+    res.cookie("jwt", token, {
       httpOnly: true,
       secure: true,
       sameSite: nodemon,
