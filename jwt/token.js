@@ -5,6 +5,7 @@ const generateTokenAndSaveInCookies = async (userId, res) => {
 const token = jwt.sign({ userId }, process.env.JWT_SECRET_KEY, {
   expiresIn: "10d"
 })
+console.log("token", token)
 res.cookie("jwt", token, {
   httpOnly: true,
   secure: true,
